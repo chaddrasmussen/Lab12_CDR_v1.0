@@ -585,6 +585,7 @@ namespace Employee
                         case ETYPE.HOURLY:
                             if (Singleton[empIndex].TotalCredits >= HOURLYCREDITS)
                             {
+                                Singleton[empIndex].EmployeeBenefits = true;
                                 rbBenefitsTrue.Checked = true;
                             }
                             else
@@ -595,6 +596,7 @@ namespace Employee
                         case ETYPE.SALARY:
                             if (Singleton[empIndex].TotalCredits >= SALARYCREDITS)
                             {
+                                Singleton[empIndex].EmployeeBenefits = true;
                                 rbBenefitsTrue.Checked = true;
                             }
                             else
@@ -605,6 +607,7 @@ namespace Employee
                         case ETYPE.SALES:
                             if (Singleton[empIndex].TotalCredits >= SALESCREDITS)
                             {
+                                Singleton[empIndex].EmployeeBenefits = true;
                                 rbBenefitsTrue.Checked = true;
                             }
                             else
@@ -727,13 +730,21 @@ namespace Employee
                 if (n.Value != null)
                 {
                     if(n.Value.EmployeeType != ETYPE.CONTRACT)
-                        lstbxEmployeeData.Items.Add(n.Value.EmployeeID + "\t" + n.Value.EmployeeName);
+                        if (n.Value.EmployeeBenefits)
+                        {
+                            lstbxEmployeeData.Items.Add(n.Value.EmployeeID + "\t" + n.Value.EmployeeName + "\tHas Benefits");
+                        }
+                        else
+                        {
+                            lstbxEmployeeData.Items.Add(n.Value.EmployeeID + "\t" + n.Value.EmployeeName);
+                        }
+                       
                 }
             }
         }
         private void lstbxEmployeeData_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int courseCredits;
+            
             string tempEmpID = lstbxEmployeeData.SelectedItem.ToString();
             string myValue = tempEmpID.Substring(0, 5);
             txtboxEmpIDEducation.Text = myValue;
