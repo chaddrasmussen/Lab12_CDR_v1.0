@@ -767,7 +767,8 @@ namespace Employee
             string tempEmpID = lstbxEmployeeData.SelectedItem.ToString();
             string myValue = tempEmpID.Substring(0, 5);
             Employee_Editor edit = new Employee_Editor();
-            edit.EmpID_Edit = myValue;
+            edit.EmpID_Edit_String = myValue;
+            edit.EmpID_Edit = uint.Parse(myValue);
             edit.Show();
         }
 

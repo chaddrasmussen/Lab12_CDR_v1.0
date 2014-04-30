@@ -32,20 +32,28 @@ namespace Employee
         string errorGrade = "Please select the grade for the course";
         string errorCourseDescription = "Please enter a course description";
         string errorCredits = "Enter the amount of credits for the test";
+        uint EmployeeID;
         BusinessRules Singleton;
         string errorMessage = "";
         public Employee_Editor()
         {
             InitializeComponent();
-            txtbxEmpID_1.Text = EmpID_Edit.ToString();
+            txtbxEmpID_1.Text = EmpID_Edit_String;
             Singleton = new BusinessRules();
+            //MessageBox.Show(txtbxEmpID_1.Text);
+            uint empID = EmployeeID;
+            txtbxEmpName_1.Text = Singleton[empID].EmployeeName;
         }
-        public string EmpID_Edit 
+        public string EmpID_Edit_String 
         {
             get { return txtbxEmpID_1.Text; }
             set { txtbxEmpID_1.Text = value; }
         }
-
+        public uint EmpID_Edit
+        {
+            get { return uint.Parse(txtbxEmpID_1.Text); }
+            set { EmployeeID = uint.Parse(txtbxEmpID_1.Text); }
+        }
         private void btnDeleteEmployee_Click(object sender, EventArgs e)
         {
 
