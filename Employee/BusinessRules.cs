@@ -38,7 +38,7 @@ namespace Employee
 
         private const int MIN_ID = 10000;
         //private Sorted Dictionary employee;
-        private SortedDictionary<uint, Employee> employee = new SortedDictionary<uint, Employee>();
+        SortedDictionary<uint, Employee> employeeData = new SortedDictionary<uint, Employee>();
 
         /// <summary>
         /// Employee indexer
@@ -51,7 +51,7 @@ namespace Employee
             {
                 if ((index >= 0))
                 {
-                    return employee[index];
+                    return employeeData[index];
                 }
                 else
                 {
@@ -60,10 +60,10 @@ namespace Employee
             }
             set
             {
-                if ((index >= 0) && !(value.EmployeeType == ETYPE.NONE) && !employee.ContainsKey(index))// && (count < MAXINDEX))
+                if ((index >= 0) && !(value.EmployeeType == ETYPE.NONE) && !employeeData.ContainsKey(index))// && (count < MAXINDEX))
                 {
                     //employee.Add(value.EmpID, value);
-                    employee[index] = value;
+                    employeeData[index] = value;
                 }
                 else
                 {
@@ -73,15 +73,15 @@ namespace Employee
         }
         public void Write()
         {
-            File_IO.Write(employee);
+            File_IO.Write(employeeData);
         }
         public void Read()
         {
-            File_IO.Read(ref employee);
+            File_IO.Read(ref employeeData);
         }
         public void ReadFromFile()
         {
-            File_IO.ReadFromFile(ref employee);
+            File_IO.ReadFromFile(ref employeeData);
         }
         public SortedDictionary<uint, Employee> search(string s)
         {
@@ -94,7 +94,7 @@ namespace Employee
             else
             {
                 s = s.ToUpper();
-                foreach (KeyValuePair<uint, Employee> item in employee)
+                foreach (KeyValuePair<uint, Employee> item in employeeData)
                 {
                     if (item.Value.EmployeeName.ToUpper().Contains(s))
                     {
