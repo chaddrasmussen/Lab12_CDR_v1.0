@@ -33,7 +33,6 @@ namespace Employee
         string errorCourseDescription = "Please enter a course description";
         string errorCredits = "Enter the amount of credits for the test";
         uint EmployeeID;
-        BusinessRules Singleton;
         string errorMessage = "";
         public Employee_Editor()
         {
@@ -41,7 +40,7 @@ namespace Employee
             txtbxEmpID_1.Text = EmpID_Edit_String;
             //MessageBox.Show(txtbxEmpID_1.Text);
             uint empID = EmployeeID;
-            txtbxEmpName_1.Text = Singleton[empID].EmployeeName;
+            txtbxEmpName_1.Text = BusinessRules.Instance[empID].EmployeeName;
         }
         public string EmpID_Edit_String 
         {
