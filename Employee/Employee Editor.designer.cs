@@ -175,6 +175,7 @@
             this.rbSales_1.TabIndex = 46;
             this.rbSales_1.Text = "Sales";
             this.rbSales_1.UseVisualStyleBackColor = true;
+            this.rbSales_1.CheckedChanged += new System.EventHandler(this.rbSales_1_CheckedChanged);
             // 
             // rbSalary_1
             // 
@@ -188,6 +189,7 @@
             this.rbSalary_1.TabStop = true;
             this.rbSalary_1.Text = "Salary";
             this.rbSalary_1.UseVisualStyleBackColor = true;
+            this.rbSalary_1.CheckedChanged += new System.EventHandler(this.rbSalary_1_CheckedChanged);
             // 
             // rbHourly_1
             // 
@@ -200,6 +202,7 @@
             this.rbHourly_1.TabStop = true;
             this.rbHourly_1.Text = "Hourly";
             this.rbHourly_1.UseVisualStyleBackColor = true;
+            this.rbHourly_1.CheckedChanged += new System.EventHandler(this.rbHourly_1_CheckedChanged);
             // 
             // rbContract_1
             // 
@@ -211,6 +214,7 @@
             this.rbContract_1.TabIndex = 43;
             this.rbContract_1.Text = "Contract";
             this.rbContract_1.UseVisualStyleBackColor = true;
+            this.rbContract_1.CheckedChanged += new System.EventHandler(this.rbContract_1_CheckedChanged);
             // 
             // txtbxEmpType_1
             // 
