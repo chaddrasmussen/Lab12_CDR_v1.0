@@ -1,4 +1,17 @@
-﻿using System;
+﻿// File Prologue
+// Mason McEwen
+// Lab12
+// created 4/28/14
+// CS 3260 section 001
+//-----------------------------------------------
+// I worked on this with Chad Rasmussen
+// I declare that the following source code was written by me, or provided
+// by the instructor for this project. I understand that copying 
+// source code from any other source constitutes cheating, and that I will
+// receive a zero grade on this project if I am found in violation of
+// this policy
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -63,7 +76,8 @@ namespace Employee
         }
         private void btnDeleteEmployee_Click(object sender, EventArgs e)
         {
-
+            uint tempID = uint.Parse(txtbxEmpID_1.Text);
+            BusinessRules.Instance.deleteEmp(tempID);
         }
 
         private void btnUpdateEmp_Click(object sender, EventArgs e)
