@@ -14,9 +14,9 @@ namespace Employee
     public partial class Employee_Editor : Form
     {
         //anti magic error messages
-       // string defaultLabelValue = "value";
+        // string defaultLabelValue = "value";
         string invalidEmpError = "Invalid Employee Type";
-       // string invalidTypError = "Invalid Type";
+        // string invalidTypError = "Invalid Type";
         string errorEnterName = "Please enter employee name";
         string errorMnthSalary = "Please enter in monthly salary";
         string errorHrlyRt = "Please enter in hourly rate";
@@ -44,7 +44,7 @@ namespace Employee
             //txtbxJobTitle_1.Text = BusinessRules.Instance[empID].EmployeeTitle;
             //txtbxEmpType_1.Text = BusinessRules.Instance[empID].EmployeeType.ToString();
         }
-        public string EmpID_Edit_String 
+        public string EmpID_Edit_String
         {
             get { return txtbxEmpID_1.Text; }
             set { txtbxEmpID_1.Text = value; }
@@ -62,7 +62,7 @@ namespace Employee
         private void btnUpdateEmp_Click(object sender, EventArgs e)
         {
             Employee emp = null;
-            if (!Regex.IsMatch(txtbxEmpID_1.Text,@"[0-9]{5}"))
+            if (!Regex.IsMatch(txtbxEmpID_1.Text, @"[0-9]{5}"))
             {
                 errorMessage += "Enter a valid employee number";
                 MessageBox.Show(errorMessage);
@@ -256,7 +256,7 @@ namespace Employee
                         this.Close();
                     }
                 }
-            }            
+            }
             if (!rbContract_1.Checked && !rbHourly_1.Checked && !rbSalary_1.Checked && !rbSales_1.Checked)
             {
                 MessageBox.Show(invalidEmpError);
@@ -275,6 +275,30 @@ namespace Employee
             txtboxDepartment_1.Text = BusinessRules.Instance[empID].EmployeeDepartment;
             txtbxJobTitle_1.Text = BusinessRules.Instance[empID].EmployeeTitle;
             txtbxEmpType_1.Text = BusinessRules.Instance[empID].EmployeeType.ToString();
+            switch (BusinessRules.Instance[empID].EmployeeType)
+            {
+                case ETYPE.CONTRACT:
+                    rbContract_1.Checked = true;
+                    txtbxVal1_1.Text = BusinessRules.Instance[empID].ContractSalary.ToString();
+                    txtbxVal2_1.Text = BusinessRules.Instance[empID].ContractAgency.ToString();
+                    break;
+                case ETYPE.HOURLY:
+                    rbHourly_1.Checked = true;
+                    txtbxVal1_1.Text = BusinessRules.Instance[empID].HourlyRate.ToString();
+                    txtbxVal2_1.Text = BusinessRules.Instance[empID].HoursWorked.ToString();
+                    break;
+                case ETYPE.SALARY:
+                    rbSalary_1.Checked = true;
+                    txtbxVal1_1.Text = BusinessRules.Instance[empID].MonthlySalary.ToString();
+                    break;
+                case ETYPE.SALES:
+                    rbSales_1.Checked = true;
+                    txtbxVal1_1.Text = BusinessRules.Instance[empID].MonthlySalary.ToString();
+                    txtbxVal2_1.Text = BusinessRules.Instance[empID].GrossSales.ToString();
+                    txtbxVal3_1.Text = BusinessRules.Instance[empID].SalesCommission.ToString();
+                    break;
+            }
+
         }
     }
 }
