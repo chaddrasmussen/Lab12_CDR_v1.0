@@ -678,7 +678,7 @@ namespace Employee
                             foreach(KeyValuePair<string,Education> o in n.Value.EmployeeCoursesTaken)
                             {
                                 courses += "   Description: " + o.Value.CourseDescription.ToString() + "\n";
-                                courses += "   ID: " + o.Value.CourseID + "\n" + "Grade: " + o.Value.CourseGrade + "\n" + "Credits: " + o.Value.CourseCredits + "\n";
+                                courses += "   ID: " + o.Value.CourseID + "\n" + "  Grade: " + o.Value.CourseGrade + "\n" + "  Credits: " + o.Value.CourseCredits + "\n";
                                 courses += "   Approval Date: " + o.Value.ApprovalDate.ToShortDateString() + "\n\n";
                             }
                             txtbxEmpData.Text += "Monthly Salary: " + n.Value.MonthlySalary.ToString("C") +"\n" + courses + "\n\n";
