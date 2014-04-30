@@ -39,7 +39,6 @@ namespace Employee
         {
             InitializeComponent();
             txtbxEmpID_1.Text = EmpID_Edit_String;
-            Singleton = new BusinessRules();
             //MessageBox.Show(txtbxEmpID_1.Text);
             uint empID = EmployeeID;
             txtbxEmpName_1.Text = Singleton[empID].EmployeeName;
@@ -56,7 +55,7 @@ namespace Employee
         }
         private void btnDeleteEmployee_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnUpdateEmp_Click(object sender, EventArgs e)

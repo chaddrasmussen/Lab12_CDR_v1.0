@@ -38,7 +38,7 @@ namespace Employee
 
         private const int MIN_ID = 10000;
         //private Sorted Dictionary employee;
-        private SortedDictionary<uint, Employee> employee;
+        private SortedDictionary<uint, Employee> employee = new SortedDictionary<uint, Employee>();
 
         /// <summary>
         /// Employee indexer
