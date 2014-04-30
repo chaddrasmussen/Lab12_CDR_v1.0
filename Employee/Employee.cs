@@ -105,7 +105,8 @@ namespace Employee
          virtual public decimal GrossSales { get; set; }
          //contract virtual members
          virtual public decimal ContractSalary { get; set; }
-         virtual public string ContractAgency { get; set; }   
+         virtual public string ContractAgency { get; set; }
+         virtual public int TotalCredits { get; set; }
      }// end class employee 
     // Derived class for hourly employees
     [Serializable]
@@ -114,7 +115,8 @@ namespace Employee
         //--------------Member Properties-----------------------
         public override decimal HourlyRate { get; set; }
         public override double HoursWorked { get; set; }
-
+        public override int TotalCredits { get; set;}
+            
         //--------------Default Constructor---------------------
         public Hourly()
             : base()
@@ -123,6 +125,8 @@ namespace Employee
             HoursWorked = default(double);
             EmployeeType = ETYPE.HOURLY;
             EmployeeMaritalStatus = M_STATUS.NONE;
+            TotalCredits = default(int);
+            
         }
         //--------------Paremeterized Constructor---------------------
         public Hourly(uint employeeID, string employeeName, string employeeDepartment, string employeeTitle, bool employeeBenefits,bool employeeSchool, int maritalIndex, decimal hourlyRate, double hoursWorked)
@@ -154,7 +158,7 @@ namespace Employee
         {
             ContractAgency = default(string);
             ContractSalary = default(decimal);
-
+            TotalCredits = default(int);
         }
         //--------------Paremeterized Constructor---------------------
         public Contract(uint employeeID, string employeeName, string employeeDepartment, string employeeTitle, bool employeeBenefits, bool employeeSchool,int maritalIndex, decimal contractSalary, string contractAgency)
@@ -177,10 +181,12 @@ namespace Employee
     class Salary : Employee
     {
         public override decimal MonthlySalary { get; set; }
+        public override int TotalCredits { get; set; }
         //--------------Default Constructor---------------------
         public Salary()
             : base()
         {
+            TotalCredits = default(int);
             MonthlySalary = default(decimal);
             EmployeeType = ETYPE.SALARY;
         }
@@ -204,10 +210,12 @@ namespace Employee
     {
         public override double SalesCommission { get; set; }
         public override decimal GrossSales { get; set; }
+        public override int TotalCredits { get; set; }
         //--------------Default Constructor---------------------
         public Sales()
             : base()
         {
+            TotalCredits = default(int);
             SalesCommission = default(double);
             GrossSales = default(decimal);
             EmployeeType = ETYPE.SALES;
@@ -219,6 +227,7 @@ namespace Employee
             SalesCommission = salesCommission;
             GrossSales = grossSales;
             EmployeeType = ETYPE.SALES;
+
         }
         //--------------Paremeterized Constructor---------------------
         public Sales(string employeeID, string employeeName, string employeeDepartment, string employeeTitle, bool employeeBenefits, bool employeeSchool, int maritalIndex, string monthlySalary, string salesCommission, string grossSales)
