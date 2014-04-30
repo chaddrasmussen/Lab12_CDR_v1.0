@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnOpenFile = new System.Windows.Forms.Button();
             this.cmbobxMaritalStatus = new System.Windows.Forms.ComboBox();
             this.txtbxJobTitle = new System.Windows.Forms.TextBox();
             this.txtboxDepartment = new System.Windows.Forms.TextBox();
@@ -82,7 +83,6 @@
             this.lblSearchInstructions1 = new System.Windows.Forms.Label();
             this.btnSearchEmpData = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.btnOpenFile = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -138,6 +138,17 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add Employee";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnOpenFile
+            // 
+            this.btnOpenFile.Location = new System.Drawing.Point(278, 231);
+            this.btnOpenFile.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOpenFile.Name = "btnOpenFile";
+            this.btnOpenFile.Size = new System.Drawing.Size(102, 27);
+            this.btnOpenFile.TabIndex = 36;
+            this.btnOpenFile.Text = "Open File";
+            this.btnOpenFile.UseVisualStyleBackColor = true;
+            this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
             // 
             // cmbobxMaritalStatus
             // 
@@ -476,7 +487,7 @@
             this.txtbxCourseCredits.Margin = new System.Windows.Forms.Padding(2);
             this.txtbxCourseCredits.Name = "txtbxCourseCredits";
             this.txtbxCourseCredits.Size = new System.Drawing.Size(105, 20);
-            this.txtbxCourseCredits.TabIndex = 52;
+            this.txtbxCourseCredits.TabIndex = 3;
             // 
             // lblCredits
             // 
@@ -494,7 +505,7 @@
             this.btnSaveEducation.Location = new System.Drawing.Point(284, 363);
             this.btnSaveEducation.Name = "btnSaveEducation";
             this.btnSaveEducation.Size = new System.Drawing.Size(112, 33);
-            this.btnSaveEducation.TabIndex = 50;
+            this.btnSaveEducation.TabIndex = 5;
             this.btnSaveEducation.Text = "Save";
             this.btnSaveEducation.UseVisualStyleBackColor = true;
             this.btnSaveEducation.Click += new System.EventHandler(this.btnSaveEducation_Click);
@@ -565,7 +576,7 @@
             this.txtCourseDescription.Margin = new System.Windows.Forms.Padding(2);
             this.txtCourseDescription.Name = "txtCourseDescription";
             this.txtCourseDescription.Size = new System.Drawing.Size(105, 20);
-            this.txtCourseDescription.TabIndex = 46;
+            this.txtCourseDescription.TabIndex = 1;
             // 
             // lblClass
             // 
@@ -583,7 +594,7 @@
             this.txtbxCourseID.Margin = new System.Windows.Forms.Padding(2);
             this.txtbxCourseID.Name = "txtbxCourseID";
             this.txtbxCourseID.Size = new System.Drawing.Size(105, 20);
-            this.txtbxCourseID.TabIndex = 44;
+            this.txtbxCourseID.TabIndex = 2;
             // 
             // lblAddEducation
             // 
@@ -628,7 +639,7 @@
             this.cmboboxGrade.Location = new System.Drawing.Point(303, 303);
             this.cmboboxGrade.Name = "cmboboxGrade";
             this.cmboboxGrade.Size = new System.Drawing.Size(37, 21);
-            this.cmboboxGrade.TabIndex = 41;
+            this.cmboboxGrade.TabIndex = 4;
             // 
             // lblGrade
             // 
@@ -698,17 +709,6 @@
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnOpenFile
-            // 
-            this.btnOpenFile.Location = new System.Drawing.Point(278, 231);
-            this.btnOpenFile.Margin = new System.Windows.Forms.Padding(2);
-            this.btnOpenFile.Name = "btnOpenFile";
-            this.btnOpenFile.Size = new System.Drawing.Size(102, 27);
-            this.btnOpenFile.TabIndex = 36;
-            this.btnOpenFile.Text = "Open File";
-            this.btnOpenFile.UseVisualStyleBackColor = true;
-            this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
             // 
             // frmEmp
             // 

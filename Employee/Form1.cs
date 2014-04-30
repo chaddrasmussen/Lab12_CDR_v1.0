@@ -61,13 +61,11 @@ namespace Employee
         string errorMessage;
         private TestData tData;
         private  List<Employee> employeeList;
-        BusinessRules Singleton;
         private void frmEmp_Load(object sender, EventArgs e)
         {           
             tData = new TestData();
             employeeList = tData.GetEmployee;
-            Singleton = new BusinessRules();
-            Singleton.Read();
+            BusinessRules.Instance.Read();
         }
         public frmEmp()
         {
@@ -416,7 +414,7 @@ namespace Employee
                         txtbxEmpName.BackColor = Color.White;
                         txtbxVal1.BackColor = Color.White;
                         emp = new Salary(txtbxEmpID.Text, txtbxEmpName.Text, txtboxDepartment.Text, txtbxJobTitle.Text, false, false, cmbobxMaritalStatus.SelectedIndex, txtbxVal1.Text);
-                        Singleton[uint.Parse(txtbxEmpID.Text)] = emp;
+                        BusinessRules.Instance[uint.Parse(txtbxEmpID.Text)] = emp;
                     }
                 }
                 else if (rbHourly.Checked)
@@ -460,7 +458,7 @@ namespace Employee
                         txtbxVal1.BackColor = Color.White;
                         txtbxVal2.BackColor = Color.White;
                         emp = new Hourly(txtbxEmpID.Text, txtbxEmpName.Text, txtboxDepartment.Text, txtbxJobTitle.Text, false, false, cmbobxMaritalStatus.SelectedIndex, txtbxVal1.Text, txtbxVal2.Text);
-                        Singleton[uint.Parse(txtbxEmpID.Text)] = emp;                     
+                        BusinessRules.Instance[uint.Parse(txtbxEmpID.Text)] = emp;                     
                     }
                 }
                 else if (rbSales.Checked)
@@ -517,7 +515,7 @@ namespace Employee
                         txtbxVal2.BackColor = Color.White;
                         txtbxVal3.BackColor = Color.White;
                         emp = new Sales(txtbxEmpID.Text, txtbxEmpName.Text, txtboxDepartment.Text, txtbxJobTitle.Text, false, false, cmbobxMaritalStatus.SelectedIndex, txtbxVal1.Text, txtbxVal2.Text, txtbxVal3.Text);
-                        Singleton[uint.Parse(txtbxEmpID.Text)] = emp;               
+                        BusinessRules.Instance[uint.Parse(txtbxEmpID.Text)] = emp;               
                     }
                 }
                 else if (rbContract.Checked)
@@ -555,7 +553,7 @@ namespace Employee
                         txtbxEmpName.BackColor = Color.White;
                         txtbxVal1.BackColor = Color.White;
                         emp = new Contract(txtbxEmpID.Text, txtbxEmpName.Text, txtboxDepartment.Text, txtbxJobTitle.Text, false, false, cmbobxMaritalStatus.SelectedIndex, txtbxVal1.Text, txtbxVal2.Text);
-                        Singleton[uint.Parse(txtbxEmpID.Text)] = emp;
+                        BusinessRules.Instance[uint.Parse(txtbxEmpID.Text)] = emp;
                         //rTxtBxEmpData.AppendText(BusinessRules.Instance[empID].EmployeeID + "\r\n");
                         //rTxtBxEmpData.AppendText(BusinessRules.Instance[empID].EmployeeName + "\r\n");
                         //rTxtBxEmpData.AppendText(BusinessRules.Instance[empID].EmployeeType + "\r\n");
@@ -578,14 +576,14 @@ namespace Employee
                 uint empIndex = uint.Parse(txtboxEmpIDEducation.Text);
                 try
                 {
-                    Singleton[empIndex].EmployeeCoursesTaken.Add(txtbxCourseID.Text, new Education(txtbxCourseID.Text, txtCourseDescription.Text, cmboboxGrade.SelectedIndex, int.Parse(txtbxCourseCredits.Text)));
-                    Singleton[empIndex].TotalCredits += int.Parse(txtbxCourseCredits.Text);
-                    switch (Singleton[empIndex].EmployeeType)
+                    BusinessRules.Instance[empIndex].EmployeeCoursesTaken.Add(txtbxCourseID.Text, new Education(txtbxCourseID.Text, txtCourseDescription.Text, cmboboxGrade.SelectedIndex, int.Parse(txtbxCourseCredits.Text)));
+                    BusinessRules.Instance[empIndex].TotalCredits += int.Parse(txtbxCourseCredits.Text);
+                    switch (BusinessRules.Instance[empIndex].EmployeeType)
                     {
                         case ETYPE.HOURLY:
-                            if (Singleton[empIndex].TotalCredits >= HOURLYCREDITS)
+                            if (BusinessRules.Instance[empIndex].TotalCredits >= HOURLYCREDITS)
                             {
-                                Singleton[empIndex].EmployeeBenefits = true;
+                                BusinessRules.Instance[empIndex].EmployeeBenefits = true;
                                 rbBenefitsTrue.Checked = true;
                             }
                             else
@@ -594,9 +592,9 @@ namespace Employee
                             }
                             break;
                         case ETYPE.SALARY:
-                            if (Singleton[empIndex].TotalCredits >= SALARYCREDITS)
+                            if (BusinessRules.Instance[empIndex].TotalCredits >= SALARYCREDITS)
                             {
-                                Singleton[empIndex].EmployeeBenefits = true;
+                                BusinessRules.Instance[empIndex].EmployeeBenefits = true;
                                 rbBenefitsTrue.Checked = true;
                             }
                             else
@@ -605,9 +603,9 @@ namespace Employee
                             }
                             break;
                         case ETYPE.SALES:
-                            if (Singleton[empIndex].TotalCredits >= SALESCREDITS)
+                            if (BusinessRules.Instance[empIndex].TotalCredits >= SALESCREDITS)
                             {
-                                Singleton[empIndex].EmployeeBenefits = true;
+                                BusinessRules.Instance[empIndex].EmployeeBenefits = true;
                                 rbBenefitsTrue.Checked = true;
                             }
                             else
@@ -666,7 +664,7 @@ namespace Employee
         private void btnSearchEmpData_Click(object sender, EventArgs e)
         {
             txtbxEmpData.Clear();
-            SortedDictionary<uint, Employee> temp = Singleton.search(txtbxSearchEmp.Text);
+            SortedDictionary<uint, Employee> temp = BusinessRules.Instance.search(txtbxSearchEmp.Text);
             foreach (KeyValuePair<uint, Employee> n in temp)
             {
                 if (n.Value != null)
@@ -719,12 +717,12 @@ namespace Employee
         }
         private void frmEmp_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Singleton.Write();
+            BusinessRules.Instance.Write();
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
             lstbxEmployeeData.Items.Clear();
-            SortedDictionary<uint, Employee> temp = Singleton.search(txtSearch.Text);
+            SortedDictionary<uint, Employee> temp = BusinessRules.Instance.search(txtSearch.Text);
             foreach (KeyValuePair<uint, Employee> n in temp)
             {
                 if (n.Value != null)
@@ -773,7 +771,7 @@ namespace Employee
 
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
-            Singleton.ReadFromFile();
+            BusinessRules.Instance.ReadFromFile();
         } //end save button
     }
 }

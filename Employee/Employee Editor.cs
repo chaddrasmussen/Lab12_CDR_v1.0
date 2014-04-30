@@ -14,9 +14,9 @@ namespace Employee
     public partial class Employee_Editor : Form
     {
         //anti magic error messages
-        string defaultLabelValue = "value";
+       // string defaultLabelValue = "value";
         string invalidEmpError = "Invalid Employee Type";
-        string invalidTypError = "Invalid Type";
+       // string invalidTypError = "Invalid Type";
         string errorEnterName = "Please enter employee name";
         string errorMnthSalary = "Please enter in monthly salary";
         string errorHrlyRt = "Please enter in hourly rate";
@@ -28,17 +28,16 @@ namespace Employee
         string errorMaritalStatus = "Please Select Marital Status";
         string errorEnterDepartment = "Please Enter a Department";
         string errorEnterJobTitle = "Please Enter a Job Title";
-        string errorCourseID = "Invalid Course ID";
-        string errorGrade = "Please select the grade for the course";
-        string errorCourseDescription = "Please enter a course description";
-        string errorCredits = "Enter the amount of credits for the test";
-        BusinessRules Singleton;
+     //   string errorCourseID = "Invalid Course ID";
+      //  string errorGrade = "Please select the grade for the course";
+       // string errorCourseDescription = "Please enter a course description";
+      //  string errorCredits = "Enter the amount of credits for the test";
         string errorMessage = "";
         public Employee_Editor()
         {
             InitializeComponent();
             txtbxEmpID_1.Text = EmpID_Edit.ToString();
-            Singleton = new BusinessRules();
+
         }
         public string EmpID_Edit 
         {
@@ -54,10 +53,6 @@ namespace Employee
         private void btnUpdateEmp_Click(object sender, EventArgs e)
         {
             Employee emp = null;
-            //if ()
-            //{
-                
-            //}
             if (!Regex.IsMatch(txtbxEmpID_1.Text,@"[0-9]{5}"))
             {
                 errorMessage += "Enter a valid employee number";
@@ -106,7 +101,7 @@ namespace Employee
                         txtbxEmpName_1.BackColor = Color.White;
                         txtbxVal1_1.BackColor = Color.White;
                         emp = new Salary(txtbxEmpID_1.Text, txtbxEmpName_1.Text, txtboxDepartment_1.Text, txtbxJobTitle_1.Text, false, false, cmbobxMaritalStatus_1.SelectedIndex, txtbxVal1_1.Text);
-                        Singleton[uint.Parse(txtbxEmpID_1.Text)] = emp;
+                        BusinessRules.Instance[uint.Parse(txtbxEmpID_1.Text)] = emp;
                         this.Close();
                     }
                 }
@@ -151,7 +146,7 @@ namespace Employee
                         txtbxVal1_1.BackColor = Color.White;
                         txtbxVal2_1.BackColor = Color.White;
                         emp = new Hourly(txtbxEmpID_1.Text, txtbxEmpName_1.Text, txtboxDepartment_1.Text, txtbxJobTitle_1.Text, false, false, cmbobxMaritalStatus_1.SelectedIndex, txtbxVal1_1.Text, txtbxVal2_1.Text);
-                        Singleton[uint.Parse(txtbxEmpID_1.Text)] = emp;
+                        BusinessRules.Instance[uint.Parse(txtbxEmpID_1.Text)] = emp;
                         this.Close();
                     }
                 }
@@ -209,7 +204,7 @@ namespace Employee
                         txtbxVal2_1.BackColor = Color.White;
                         txtbxVal3_1.BackColor = Color.White;
                         emp = new Sales(txtbxEmpID_1.Text, txtbxEmpName_1.Text, txtboxDepartment_1.Text, txtbxJobTitle_1.Text, false, false, cmbobxMaritalStatus_1.SelectedIndex, txtbxVal1_1.Text, txtbxVal2_1.Text, txtbxVal3_1.Text);
-                        Singleton[uint.Parse(txtbxEmpID_1.Text)] = emp;
+                        BusinessRules.Instance[uint.Parse(txtbxEmpID_1.Text)] = emp;
                         this.Close();
                     }
                 }
@@ -248,7 +243,7 @@ namespace Employee
                         txtbxEmpName_1.BackColor = Color.White;
                         txtbxVal1_1.BackColor = Color.White;
                         emp = new Contract(txtbxEmpID_1.Text, txtbxEmpName_1.Text, txtboxDepartment_1.Text, txtbxJobTitle_1.Text, false, false, cmbobxMaritalStatus_1.SelectedIndex, txtbxVal1_1.Text, txtbxVal2_1.Text);
-                        Singleton[uint.Parse(txtbxEmpID_1.Text)] = emp;
+                        BusinessRules.Instance[uint.Parse(txtbxEmpID_1.Text)] = emp;
                         this.Close();
                     }
                 }

@@ -20,23 +20,26 @@ namespace Employee
 {
     sealed class BusinessRules
     {
-        private static BusinessRules businessRules = null;
+        /// <summary>
+        /// Purpose: Creates a readonly instance of the business rules class
+        /// </summary>
+        private static readonly BusinessRules instance = new BusinessRules();
+        /// <summary>
+        /// Purpose: Default constructor
+        /// </summary>
+        private BusinessRules() { }
+        /// <summary>
+        /// Purpose: provides a way to access the readonly instance of the business rules class
+        /// </summary>
+        public static BusinessRules Instance
+        {
+            get { return instance; }
+        }
+
         private const int MIN_ID = 10000;
         //private Sorted Dictionary employee;
         private SortedDictionary<uint, Employee> employee;
 
-        /// <summary>
-        /// Get Instance Class
-        /// </summary>
-        /// <returns>bussinessrules</returns>
-        public static BusinessRules GetInstance()
-        {
-            if (null == businessRules)
-            {
-                businessRules = new BusinessRules();
-            }
-            return businessRules;
-        }
         /// <summary>
         /// Employee indexer
         /// </summary>
@@ -67,14 +70,6 @@ namespace Employee
                     MessageBox.Show("Employee ID is Already Used");
                 }
             }
-        }
-        /// <summary>
-        /// Private Constructor
-        /// </summary>
-        public BusinessRules()
-        {
-            //employee = new DArray();
-            employee = new SortedDictionary<uint, Employee>();
         }
         public void Write()
         {

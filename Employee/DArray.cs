@@ -28,12 +28,12 @@ namespace Employee
         private Employee[] tempArray;
 
         /// <summary>
-        /// static readonly instance to make a singleton class
+        /// static readonly instance to make a BusinessRules.Instance class
         /// </summary>
         private static readonly DArray instance = new DArray();
 
         /// <summary>
-        /// singular instance of the singleton DArray class
+        /// singular instance of the BusinessRules.Instance DArray class
         /// </summary>
         public static DArray Instance
         {
