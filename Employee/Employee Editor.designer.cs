@@ -345,6 +345,7 @@
             this.Controls.Add(this.lblEmpType_1);
             this.Name = "Employee_Editor";
             this.Text = "Employee_Editor";
+            this.Load += new System.EventHandler(this.Employee_Editor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

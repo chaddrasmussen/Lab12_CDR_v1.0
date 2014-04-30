@@ -37,12 +37,12 @@ namespace Employee
         public Employee_Editor()
         {
             InitializeComponent();
-            txtbxEmpID_1.Text = EmpID_Edit_String;
-            uint empID = EmployeeID;
-            txtbxEmpName_1.Text = BusinessRules.Instance[empID].EmployeeName;
-            txtboxDepartment_1.Text = BusinessRules.Instance[empID].EmployeeDepartment;
-            txtbxJobTitle_1.Text = BusinessRules.Instance[empID].EmployeeTitle;
-            txtbxEmpType_1.Text = BusinessRules.Instance[empID].EmployeeType.ToString();
+            //txtbxEmpID_1.Text = EmpID_Edit_String;
+            //uint empID = EmployeeID;
+            //txtbxEmpName_1.Text = BusinessRules.Instance[empID].EmployeeName;
+            //txtboxDepartment_1.Text = BusinessRules.Instance[empID].EmployeeDepartment;
+            //txtbxJobTitle_1.Text = BusinessRules.Instance[empID].EmployeeTitle;
+            //txtbxEmpType_1.Text = BusinessRules.Instance[empID].EmployeeType.ToString();
         }
         public string EmpID_Edit_String 
         {
@@ -265,6 +265,16 @@ namespace Employee
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Employee_Editor_Load(object sender, EventArgs e)
+        {
+            txtbxEmpID_1.Text = EmpID_Edit_String;
+            uint empID = EmployeeID;
+            txtbxEmpName_1.Text = BusinessRules.Instance[empID].EmployeeName;
+            txtboxDepartment_1.Text = BusinessRules.Instance[empID].EmployeeDepartment;
+            txtbxJobTitle_1.Text = BusinessRules.Instance[empID].EmployeeTitle;
+            txtbxEmpType_1.Text = BusinessRules.Instance[empID].EmployeeType.ToString();
         }
     }
 }
