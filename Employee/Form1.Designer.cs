@@ -449,7 +449,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(455, 409);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Employee Education";
+            this.tabPage2.Text = "Edit Employee";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // txtboxEmpIDEducation
