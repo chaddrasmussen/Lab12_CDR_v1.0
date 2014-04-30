@@ -363,10 +363,7 @@ namespace Employee
         private void btnSave_Click(object sender, EventArgs e)
         {
             Employee emp = null;
-            //if ()
-            //{
-                
-            //}
+            
             if (!Regex.IsMatch(txtbxEmpID.Text,@"[0-9]{5}"))
             {
                 errorMessage += "Enter a valid employee number";
@@ -688,7 +685,8 @@ namespace Employee
             {
                 if (n.Value != null)
                 {
-                    lstbxEmployeeData.Items.Add(n.Value.EmployeeID + "\t" + n.Value.EmployeeName);
+                    if(n.Value.EmployeeType != ETYPE.CONTRACT)
+                        lstbxEmployeeData.Items.Add(n.Value.EmployeeID + "\t" + n.Value.EmployeeName);
                 }
             }
         }
