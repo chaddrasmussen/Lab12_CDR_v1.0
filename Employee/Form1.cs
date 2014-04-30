@@ -16,8 +16,12 @@ using System.Drawing;
 using System.Text.RegularExpressions;
 namespace Employee
 {
+    
     public partial class frmEmp : Form
     {
+        const int HOURLYCREDITS = 3;
+        const int SALARYCREDITS = 6;
+        const int SALESCREDITS = 5;
         //anti magic label and text box values
         string strContract = "Contract";
         string strHourly = "Hourly";
@@ -578,6 +582,42 @@ namespace Employee
                 try
                 {
                     Singleton[empIndex].EmployeeCoursesTaken.Add(txtbxCourseID.Text, new Education(txtbxCourseID.Text, txtCourseDescription.Text, cmboboxGrade.SelectedIndex, int.Parse(txtbxCourseCredits.Text)));
+                    Singleton[empIndex].TotalCredits += int.Parse(txtbxCourseCredits.Text);
+                    switch (Singleton[empIndex].EmployeeType)
+                    {
+                        case ETYPE.HOURLY:
+                            if (Singleton[empIndex].TotalCredits >= HOURLYCREDITS)
+                            {
+                                rbBenefitsTrue.Checked = true;
+                            }
+                            else
+                            {
+                                rbBenefitsTrue.Checked = false;
+                            }
+                            break;
+                        case ETYPE.SALARY:
+                            if (Singleton[empIndex].TotalCredits >= SALARYCREDITS)
+                            {
+                                rbBenefitsTrue.Checked = true;
+                            }
+                            else
+                            {
+                                rbBenefitsTrue.Checked = false;
+                            }
+                            break;
+                        case ETYPE.SALES:
+                            if (Singleton[empIndex].TotalCredits >= SALESCREDITS)
+                            {
+                                rbBenefitsTrue.Checked = true;
+                            }
+                            else
+                            {
+                                rbBenefitsTrue.Checked = false;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
                 }
                 catch
                 {
@@ -631,6 +671,7 @@ namespace Employee
             {
                 if (n.Value != null)
                 {
+                    
                     txtbxEmpData.Text += "ID: " + n.Key.ToString() + "\nName: " + n.Value.EmployeeName + "\n";
                     string courses = "Courses Taken\n";
                     switch (n.Value.EmployeeType)
