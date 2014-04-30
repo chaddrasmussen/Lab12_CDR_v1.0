@@ -729,7 +729,8 @@ namespace Employee
             {
                 if (n.Value != null)
                 {
-                    if(n.Value.EmployeeType != ETYPE.CONTRACT)
+                    if (n.Value.EmployeeType != ETYPE.CONTRACT)
+                    {
                         if (n.Value.EmployeeBenefits)
                         {
                             lstbxEmployeeData.Items.Add(n.Value.EmployeeID + "\t" + n.Value.EmployeeName + "\tHas Benefits");
@@ -738,19 +739,29 @@ namespace Employee
                         {
                             lstbxEmployeeData.Items.Add(n.Value.EmployeeID + "\t" + n.Value.EmployeeName);
                         }
-                       
+                    }              
                 }
             }
         }
         private void lstbxEmployeeData_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            string tempEmpID = lstbxEmployeeData.SelectedItem.ToString();
-            string myValue = tempEmpID.Substring(0, 5);
-            txtboxEmpIDEducation.Text = myValue;
-            
+            if (lstbxEmployeeData.SelectedItem != null)
+            {
+                string tempEmpID = lstbxEmployeeData.SelectedItem.ToString();
+                string myValue = tempEmpID.Substring(0, 5);
+                if (Regex.IsMatch(tempEmpID,"Has Benefits"))
+                {
+                    rbBenefitsFalse.Checked = false;
+                    rbBenefitsTrue.Checked = true;
+                }
+                else
+                {
+                    rbBenefitsTrue.Checked = false;
+                    rbBenefitsFalse.Checked = true;
+                }
+                txtboxEmpIDEducation.Text = myValue;
+            }        
         }
-
         private void lstbxEmployeeData_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             string tempEmpID = lstbxEmployeeData.SelectedItem.ToString();
