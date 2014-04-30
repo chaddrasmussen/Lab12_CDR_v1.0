@@ -1,4 +1,15 @@
-﻿using System;
+﻿// File Prologue
+// Chad Rasmussen
+// Lab06
+// created 4/21/14
+// CS 3260 section 001
+//-----------------------------------------------I worked on this with Mason McEwen
+// I declare that the following source code was written by me, or provided
+// by the instructor for this project. I understand that copying 
+// source code from any other source constitutes cheating, and that I will
+// receive a zero grade on this project if I am found in violation of
+// this policy
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -117,7 +128,7 @@ namespace Employee
                         txtbxEmpName_1.BackColor = Color.White;
                         txtbxVal1_1.BackColor = Color.White;
                         emp = new Salary(txtbxEmpID_1.Text, txtbxEmpName_1.Text, txtboxDepartment_1.Text, txtbxJobTitle_1.Text, false, false, cmbobxMaritalStatus_1.SelectedIndex, txtbxVal1_1.Text);
-                        BusinessRules.Instance[uint.Parse(txtbxEmpID_1.Text)] = emp;
+                        BusinessRules.Instance.EditEmployee(emp);
                         this.Close();
                     }
                 }
@@ -162,7 +173,7 @@ namespace Employee
                         txtbxVal1_1.BackColor = Color.White;
                         txtbxVal2_1.BackColor = Color.White;
                         emp = new Hourly(txtbxEmpID_1.Text, txtbxEmpName_1.Text, txtboxDepartment_1.Text, txtbxJobTitle_1.Text, false, false, cmbobxMaritalStatus_1.SelectedIndex, txtbxVal1_1.Text, txtbxVal2_1.Text);
-                        BusinessRules.Instance[uint.Parse(txtbxEmpID_1.Text)] = emp;
+                        BusinessRules.Instance.EditEmployee(emp);
                         this.Close();
                     }
                 }
@@ -220,7 +231,7 @@ namespace Employee
                         txtbxVal2_1.BackColor = Color.White;
                         txtbxVal3_1.BackColor = Color.White;
                         emp = new Sales(txtbxEmpID_1.Text, txtbxEmpName_1.Text, txtboxDepartment_1.Text, txtbxJobTitle_1.Text, false, false, cmbobxMaritalStatus_1.SelectedIndex, txtbxVal1_1.Text, txtbxVal2_1.Text, txtbxVal3_1.Text);
-                        BusinessRules.Instance[uint.Parse(txtbxEmpID_1.Text)] = emp;
+                        BusinessRules.Instance.EditEmployee(emp);
                         this.Close();
                     }
                 }
@@ -259,7 +270,7 @@ namespace Employee
                         txtbxEmpName_1.BackColor = Color.White;
                         txtbxVal1_1.BackColor = Color.White;
                         emp = new Contract(txtbxEmpID_1.Text, txtbxEmpName_1.Text, txtboxDepartment_1.Text, txtbxJobTitle_1.Text, false, false, cmbobxMaritalStatus_1.SelectedIndex, txtbxVal1_1.Text, txtbxVal2_1.Text);
-                        BusinessRules.Instance[uint.Parse(txtbxEmpID_1.Text)] = emp;
+                        BusinessRules.Instance.EditEmployee(emp);
                         this.Close();
                     }
                 }

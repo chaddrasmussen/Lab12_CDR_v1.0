@@ -1,9 +1,9 @@
 ﻿// File Prologue
 // Chad Rasmussen
-// Lab12
-// created 4/28/14
+// Lab06
+// created 4/21/14
 // CS 3260 section 001
-//-----------------------------------------------
+//-----------------------------------------------I worked on this with Mason McEwen
 // I declare that the following source code was written by me, or provided
 // by the instructor for this project. I understand that copying 
 // source code from any other source constitutes cheating, and that I will
@@ -39,7 +39,10 @@ namespace Employee
         private const int MIN_ID = 10000;
         //private Sorted Dictionary employee;
         SortedDictionary<uint, Employee> employeeData = new SortedDictionary<uint, Employee>();
-
+        public void EditEmployee(Employee emp)
+        {
+            employeeData[emp.EmployeeID] = emp;
+        }
         /// <summary>
         /// Employee indexer
         /// </summary>
