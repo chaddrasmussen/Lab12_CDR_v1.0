@@ -773,6 +773,6 @@ namespace Employee
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
             BusinessRules.Instance.ReadFromFile();
-        } //end save button
+        }
     }
 }

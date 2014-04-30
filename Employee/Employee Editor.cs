@@ -33,14 +33,16 @@ namespace Employee
         string errorCourseDescription = "Please enter a course description";
         string errorCredits = "Enter the amount of credits for the test";
         uint EmployeeID;
-        BusinessRules Singleton;
         string errorMessage = "";
         public Employee_Editor()
         {
             InitializeComponent();
             txtbxEmpID_1.Text = EmpID_Edit_String;
             uint empID = EmployeeID;
-            txtbxEmpName_1.Text = Singleton[empID].EmployeeName;
+            txtbxEmpName_1.Text = BusinessRules.Instance[empID].EmployeeName;
+            txtboxDepartment_1.Text = BusinessRules.Instance[empID].EmployeeDepartment;
+            txtbxJobTitle_1.Text = BusinessRules.Instance[empID].EmployeeTitle;
+            txtbxEmpType_1.Text = BusinessRules.Instance[empID].EmployeeType.ToString();
         }
         public string EmpID_Edit_String 
         {
