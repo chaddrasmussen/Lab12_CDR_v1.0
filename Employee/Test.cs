@@ -27,10 +27,10 @@ namespace Employee
         public TestData()
         {
             employeeData = new List<Employee>();
-            employeeData.Add(new Salary(10000, "Roy", "I.T.", "Irishman", false, false, 2, 1000));
-            employeeData.Add(new Hourly(10001, "Moss", "I.T.", "Fire!", false, false, 15, 2, 40));
-            employeeData.Add(new Sales(10002, "Jen", "I.T.", "Relationship Manager", false, false, 2, 800, 50, 20));
-            employeeData.Add(new Contract(10003, "Mr. Renham", "Management", "C.E.O", false, false, 3, 50000, "D.O.C."));
+            employeeData.Add(new Salary(10000, "Fred", "I.T.", "Scottish", false, false, 2, 1000));
+            employeeData.Add(new Hourly(10001, "Barb", "I.T.", "Help!", false, false, 15, 2, 40));
+            employeeData.Add(new Sales(10002, "Douglas", "I.T.", "Relationship Manager", false, false, 2, 800, 50, 20));
+            employeeData.Add(new Contract(10003, "Ash", "Management", "C.E.O", false, false, 3, 50000, "D.O.C."));
             Employee tempEmp = new Salary();
             tempEmp.EmployeeType = ETYPE.NONE;
             employeeData.Add(tempEmp);

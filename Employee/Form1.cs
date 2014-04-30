@@ -727,17 +727,14 @@ namespace Employee
             {
                 if (n.Value != null)
                 {
-                    if (n.Value.EmployeeType != ETYPE.CONTRACT)
+                    if (n.Value.EmployeeBenefits)
                     {
-                        if (n.Value.EmployeeBenefits)
-                        {
-                            lstbxEmployeeData.Items.Add(n.Value.EmployeeID + "\t" + n.Value.EmployeeName + "\tHas Benefits");
-                        }
-                        else
-                        {
-                            lstbxEmployeeData.Items.Add(n.Value.EmployeeID + "\t" + n.Value.EmployeeName);
-                        }
-                    }              
+                        lstbxEmployeeData.Items.Add(n.Value.EmployeeID + "\t" + n.Value.EmployeeName + "\tHas Benefits");
+                    }
+                    else
+                    {
+                        lstbxEmployeeData.Items.Add(n.Value.EmployeeID + "\t" + n.Value.EmployeeName);
+                    }            
                 }
             }
         }
