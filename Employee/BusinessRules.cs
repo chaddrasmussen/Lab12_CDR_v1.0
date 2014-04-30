@@ -84,6 +84,10 @@ namespace Employee
         {
             File_IO.Read(ref employee);
         }
+        public void ReadFromFile()
+        {
+            File_IO.ReadFromFile(ref employee);
+        }
         public SortedDictionary<uint, Employee> search(string s)
         {
             SortedDictionary<uint, Employee> l = new SortedDictionary<uint, Employee>();

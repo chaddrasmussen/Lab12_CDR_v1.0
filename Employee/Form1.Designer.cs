@@ -82,6 +82,7 @@
             this.lblSearchInstructions1 = new System.Windows.Forms.Label();
             this.btnSearchEmpData = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnOpenFile = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -102,6 +103,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnOpenFile);
             this.tabPage1.Controls.Add(this.cmbobxMaritalStatus);
             this.tabPage1.Controls.Add(this.txtbxJobTitle);
             this.tabPage1.Controls.Add(this.txtboxDepartment);
@@ -210,7 +212,7 @@
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(278, 298);
+            this.btnTest.Location = new System.Drawing.Point(278, 301);
             this.btnTest.Margin = new System.Windows.Forms.Padding(2);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(102, 27);
@@ -221,7 +223,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(278, 262);
+            this.btnClear.Location = new System.Drawing.Point(278, 266);
             this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(102, 27);
@@ -232,7 +234,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(278, 337);
+            this.btnSave.Location = new System.Drawing.Point(278, 336);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(102, 27);
@@ -697,6 +699,17 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // btnOpenFile
+            // 
+            this.btnOpenFile.Location = new System.Drawing.Point(278, 231);
+            this.btnOpenFile.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOpenFile.Name = "btnOpenFile";
+            this.btnOpenFile.Size = new System.Drawing.Size(102, 27);
+            this.btnOpenFile.TabIndex = 36;
+            this.btnOpenFile.Text = "Open File";
+            this.btnOpenFile.UseVisualStyleBackColor = true;
+            this.btnOpenFile.Click += new System.EventHandler(this.btnOpenFile_Click);
+            // 
             // frmEmp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -776,6 +789,7 @@
         private System.Windows.Forms.ComboBox cmbobxMaritalStatus;
         private System.Windows.Forms.TextBox txtboxEmpIDEducation;
         private System.Windows.Forms.Label lblEmplID;
+        private System.Windows.Forms.Button btnOpenFile;
     }
 }
 

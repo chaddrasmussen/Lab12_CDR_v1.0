@@ -758,6 +758,11 @@ namespace Employee
             Employee_Editor edit = new Employee_Editor();
             edit.EmpID_Edit = myValue;
             edit.Show();
+        }
+
+        private void btnOpenFile_Click(object sender, EventArgs e)
+        {
+            Singleton.ReadFromFile();
         } //end save button
     }
 }

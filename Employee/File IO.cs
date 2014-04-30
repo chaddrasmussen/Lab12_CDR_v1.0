@@ -39,6 +39,32 @@ namespace Employee
             }
             stream.Close();
         }
+
+        public static void ReadFromFile(ref SortedDictionary<uint,Employee> sd)
+        {
+            open.Filter = "bin files (*.bin)|*.bin";
+            open.FilterIndex = 2;
+            open.RestoreDirectory = true;
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((stream = open.OpenFile()) != null)
+                    {
+                        using (stream)
+                        {
+                            sd = (SortedDictionary<uint, Employee>)bf.Deserialize(stream);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+                stream.Close();
+            }
+
+        }
         /// <summary>
         /// serializes to file
         /// </summary>
