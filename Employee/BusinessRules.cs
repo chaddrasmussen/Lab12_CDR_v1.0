@@ -40,7 +40,10 @@ namespace Employee
         private const int MIN_ID = 10000;
         //private Sorted Dictionary employee;
         SortedDictionary<uint, Employee> employeeData = new SortedDictionary<uint, Employee>();
-
+        public void EditEmployee(Employee emp)
+        {
+            employeeData[emp.EmployeeID] = emp;
+        }
         /// <summary>
         /// Employee indexer
         /// </summary>
