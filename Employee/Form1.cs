@@ -747,6 +747,16 @@ namespace Employee
             
             string tempEmpID = lstbxEmployeeData.SelectedItem.ToString();
             string myValue = tempEmpID.Substring(0, 5);
+            if (Regex.IsMatch(tempEmpID,"Has Benefits"))
+            {
+                rbBenefitsFalse.Checked = false;
+                rbBenefitsTrue.Checked = true;
+            }
+            else
+            {
+                rbBenefitsTrue.Checked = false;
+                rbBenefitsFalse.Checked = true;
+            }
             txtboxEmpIDEducation.Text = myValue;
             
         }
